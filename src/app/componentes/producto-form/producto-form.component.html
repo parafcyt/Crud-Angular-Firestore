@@ -1,0 +1,21 @@
+<form (ngSubmit)="agregarProductoF()">
+    <div class="mb-3">
+        <label for="etiquetaNombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="nombre" [(ngModel)]="producto.nombre">
+        <div id="comentario" class="form-text">*Campo obligatorio</div>
+    </div>
+    <div class="mb-3">
+        <label for="etiquetaDescripcion" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" name="descripcion" [(ngModel)]="producto.descripcion">
+        <div id="comentario" class="form-text">*Campo obligatorio</div>
+    </div>
+    <div class="mb-3">
+        <label for="etiquetaPrecio" class="form-label">Precio</label>
+        <input type="number" class="form-control" name="precio" [(ngModel)]="producto.precio" step="0.5">
+        <div id="comentario" class="form-text">*Campo obligatorio</div>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </div>
+
+</form>

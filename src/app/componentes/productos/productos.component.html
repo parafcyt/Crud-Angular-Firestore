@@ -1,0 +1,49 @@
+<div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="productos.length > 0; else sinproductos">
+    <div class="col">
+        <div class="card" *ngFor="let producto of productos">
+            <div class="card-body">
+                <h5 class="card-title">{{ producto.nombre }}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+                <p class="card-text">{{producto.precio}}</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button (click)="eliminarProductoF(producto)" class="btn btn-danger ">Eliminar</button>
+                    <button (click)="editarProductoF(producto)" class="btn btn-primary ">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Si estoyEditando es true -->
+<!-- Ahi aparece el formulario de Actualizar -->
+<div *ngIf="estoyEditando">
+    <form (ngSubmit)="actualizarProductoF()">
+        <div class="mb-3">
+            <label for="etiquetaNombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="productoEditando.nombre">
+            <div id="comentario" class="form-text">*Campo obligatorio</div>
+        </div>
+        <div class="mb-3">
+            <label for="etiquetaDescripcion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" name="descripcion" [(ngModel)]="productoEditando.descripcion">
+            <div id="comentario" class="form-text">*Campo obligatorio</div>
+        </div>
+        <div class="mb-3">
+            <label for="etiquetaPrecio" class="form-label">Precio</label>
+            <input type="number" class="form-control" name="precio" [(ngModel)]="productoEditando.precio" step="0.5">
+            <div id="comentario" class="form-text">*Campo obligatorio</div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-success">Actualizar</button>
+        </div>
+
+
+    </form>
+
+</div>
+
+<ng-template #sinproductos>
+    <p>
+        No hay productos para mostrar.
+    </p>
+</ng-template>

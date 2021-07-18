@@ -39,7 +39,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -119,6 +118,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-crud-firestore"
+    }
+  },
+  "defaultProject": "angular-crud-firestore",
+  "cli": {
+    "analytics": "cfd8cdd7-dae6-481b-8626-19147fa7de43"
+  }
 }
